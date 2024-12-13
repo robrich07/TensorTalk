@@ -1,2 +1,13 @@
 # TensorTalk
 A SSL-TTS framework 
+
+Each of these notebooks comprise a core component of our project. The Train_GlowTTS notebook contains all the training code that we used to attempt to train the GlowTTS model. The Pipeline_with_GlowTTS notebook contains the original pipeline we proposed using the GlowTTS model. The Project Pipeline notebook contains our final pipeline, as well as all of its parts, and the functions we used to test it.
+
+## Example Usage
+Note: When running the pip installs and imports for the notebooks, you will be prompted with a warning to restart the runtime. Do not restart you rruntime and discard the warning.
+
+To test out the Train_GlowTTS notebook, you can simply upload the best model file, or alternatively comment out the checkpoint loading lines in the main function (at the end). Then you can run all cells, which will download the LJSpeech dataset and begin training the model. You can see the outputs of training from the main cell.
+
+To test out the Pipeline_with_GlowTTS notebook, run all cells before the last two. These last two cells are here for example usage. The second to last cell shows how you can input text to our TextToSSL model, which uses GlowTTS, and get out WavLM features. The last cell shows how you can input text and target audio to the full pipeline to have it generate a audio file. The third to last cell loads the LJSpeech dataset, which you can use as target audio files. Due to our difficulties training the GlowTTS model, the output of this pipeline is not the best. However, we have attached our best model we got from training, and with more training this GlowTTS pipeline would be able to produce the same results as the final pipeline we used for testing. This pipeline is here to show that our intended framework works without errors, the GlowTTS just needs more training to produce better results. 
+
+To test out the Project Pipeline notebook, you can run the blocks under SSL Encoder, Vocoder, Urhythmic Component and finally Pipeline. Then you can run the cell under LJSpeech dataset to load up the dataset to use as target audio files. After that you can run the cell under LJSpeech wavs, upload the sampled sentences into the colab, and run the Example Audio Generation cell. You might have to modify where the pipeline saves the generated audio files, but that is all. This example audio generation shows how we generated the audio we used for testing. Below these cells you can see our testing section. This section contains all the code we used for testing, which you can try out if you upload the example folder containing our LJSpeech demos into the colab and change the parent directory in each metric cell.
